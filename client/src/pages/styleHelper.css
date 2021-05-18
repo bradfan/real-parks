@@ -1,0 +1,9 @@
+.form-box {
+  padding: 20px;
+  color: white;
+  background: rgb(65 75 77 / 70%);
+  border-radius: 25px;
+  font-weight: bold;
+  max-width: 400px;
+  margin: 0 auto;
+}
