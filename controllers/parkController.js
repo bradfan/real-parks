@@ -40,4 +40,6 @@ module.exports = {
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
+
+  // create a new function "findOne" "get route" for one park based on park id, find the one park send it to the front find By Id function out of mongoose
 };
