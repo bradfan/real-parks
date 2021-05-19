@@ -62,6 +62,8 @@ function Dashboard() {
     getPark();
   });
 
+  // add expanded page button and function
+
   const saveInput = (data) => {
     console.log("save input button clicked");
     PARKAPI.handleSave({

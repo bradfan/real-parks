@@ -30,6 +30,10 @@ function Favorites() {
   const [park, setPark] = useState("");
   const [favoriteParks, setFavoriteParks] = useState([]);
 
+  // add expanded page button and function
+
+  // add delete button and function
+
   React.useEffect(() => {
     PARKAPI.getParks().then(({ data }) => {
       console.log("favorites:", data);
@@ -76,11 +80,11 @@ function Favorites() {
                     value={favPark.city}
                     onClick={(event) => {
                       console.log(event.target.value);
-                      onSubmit(event);
-                      provideData(event);
+                      // onSubmit(event);
+                      // provideData(event);
                     }}
                   >
-                    Check the weather forecast for this park!
+                    Remove from Favorites
                   </button>
                 </li>
               </ul>
