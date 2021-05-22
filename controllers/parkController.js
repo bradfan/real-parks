@@ -16,7 +16,6 @@ module.exports = {
     db.Park.find({
       user_id: userData.id,
     })
-      // .sort({ name })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
@@ -35,6 +34,7 @@ module.exports = {
   },
 
   delete: function (req, res) {
+     const userData = decodeToken(req);
     db.Park.findById({ _id: req.params.id })
       .then((dbModel) => dbModel.remove())
       .then((dbModel) => res.json(dbModel))

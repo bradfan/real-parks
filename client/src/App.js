@@ -10,7 +10,7 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Favorites from "./pages/Favorites";
 import Navbar from "./components/Navbar";
-import trailApi from "./utils/auth/trailAPI/trailAPI";
+import parkApi from "./utils/auth/parkAPI/parkAPI";
 import ParkInfo from "./components/ParkInfo";
 
 function App() {

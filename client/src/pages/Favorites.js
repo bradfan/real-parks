@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import background from "../imgs/fav.jpeg";
-import PARKAPI from "../utils/auth/trailAPI/trailAPI";
+import PARKAPI from "../utils/auth/parkAPI/parkAPI";
 
 import axios from "axios";
 
@@ -33,6 +33,12 @@ function Favorites() {
   // add expanded page button and function
 
   // add delete button and function
+  const deleteFav = useCallback((event) => {
+    event.preventDefault();
+    PARKAPI.deleteSave()
+
+    console.log("remove button");
+  });
 
   React.useEffect(() => {
     PARKAPI.getParks().then(({ data }) => {
@@ -77,11 +83,10 @@ function Favorites() {
                   <button
                     className="btn btn-outline-success"
                     type="submit"
-                    value={favPark.city}
+                    value=""
                     onClick={(event) => {
                       console.log(event.target.value);
-                      // onSubmit(event);
-                      // provideData(event);
+                      deleteFav(event);
                     }}
                   >
                     Remove from Favorites
