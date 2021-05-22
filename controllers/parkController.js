@@ -34,7 +34,7 @@ module.exports = {
   },
 
   delete: function (req, res) {
-     const userData = decodeToken(req);
+    const userData = decodeToken(req);
     db.Park.findById({ _id: req.params.id })
       .then((dbModel) => dbModel.remove())
       .then((dbModel) => res.json(dbModel))

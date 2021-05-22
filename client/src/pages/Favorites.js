@@ -33,11 +33,16 @@ function Favorites() {
   // add expanded page button and function
 
   // add delete button and function
-  const deleteFav = useCallback((event) => {
-    event.preventDefault();
-    PARKAPI.deleteSave()
+  const deleteFav = ((id) => {
+    // event.preventDefault();
+    PARKAPI.deleteSave(id).then(() => {
+      PARKAPI.getParks().then(({ data }) => {
+        console.log("favorites:", data);
+        setFavoriteParks(data);
+      }); 
+    })
 
-    console.log("remove button");
+    console.log("remove button", id);
   });
 
   React.useEffect(() => {
@@ -83,10 +88,11 @@ function Favorites() {
                   <button
                     className="btn btn-outline-success"
                     type="submit"
-                    value=""
+                    value={favPark._id}
                     onClick={(event) => {
                       console.log(event.target.value);
-                      deleteFav(event);
+                      console.log(favPark);
+                      deleteFav(event.target.value);
                     }}
                   >
                     Remove from Favorites
