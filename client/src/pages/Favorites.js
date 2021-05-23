@@ -33,7 +33,7 @@ function Favorites() {
 
   // add expanded page button and function
 
-  // add delete button and function
+  
   const deleteFav = (id) => {
     PARKAPI.deleteSave(id).then(() => {
       PARKAPI.getParks().then(({ data }) => {

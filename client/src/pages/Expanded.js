@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { api_key } from "../api.json";
-import background from "../imgs/expanded.jpeg";
+import background from "../imgs/weather2.jpeg";
 import {useParams} from "react-router-dom";
 
 
