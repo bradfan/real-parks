@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { api_key } from "../api.json";
 import background from "../imgs/expanded.jpeg";
-const [park, setPark] = useState("");
+import {useParams} from "react-router-dom";
+
 
 const styles = {
   width: "100vw",
@@ -36,6 +37,9 @@ const weatherStyles = {
 
 function Expanded() {
   const [weatherResponse, setWeatherResponse] = useState({});
+  const [park, setPark] = useState("");
+  let params  = useParams();
+    console.log("parkId:", params);
 
   const getParkWeather = () => {
     const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?q=${park}&units=imperial&APPID=${api_key}`;
@@ -53,16 +57,20 @@ function Expanded() {
     console.log("park data:", park);
   };
 
-  const onSubmit = useCallback((event) => {
-    event.preventDefault();
-    console.log("park:", park);
-    getParkWeather();
-  });
+  // const onSubmit = useCallback((event) => {
+  //   event.preventDefault();
+  //   console.log("park:", park);
+  //   getParkWeather();
+  // });
+
+  useEffect(() =>{
+    
+  },[])
 
   return (
     <div style={styles}>
       <div style={cardStyles} className="card">
-        <img
+        {/* <img
           style={{ width: "100px", height: "100px" }}
           src={props.image}
           className="card-img-top"
@@ -79,15 +87,15 @@ function Expanded() {
           src={props.image}
           className="card-img-top"
           alt={props.name}
-        />
+        /> */}
         <div>
           <div className="card-body">
-            <h5 className="card-title">
+            {/* <h5 className="card-title">
               Name: {props.empName.first} {props.empName.last}{" "}
-            </h5>
+            </h5> */}
             <p className="card-text">A proud employee of Your Company</p>
           </div>
-          <ul className="list-group list-group-flush">
+          {/* <ul className="list-group list-group-flush">
             <li className="list-group-item">Phone: {props.phoneNumber}</li>
             <li className="list-group-item">email: {props.email}</li>
             <li className="list-group-item">DOB: {props.dob}</li>
@@ -103,7 +111,7 @@ function Expanded() {
             >
               Check the weather forecast for this park!
             </button>
-          </ul>
+          </ul> */}
         </div>
       </div>
       <div style={weatherStyles}>

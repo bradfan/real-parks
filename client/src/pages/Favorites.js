@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import background from "../imgs/fav.jpeg";
-import PARKAPI from "../utils/auth/trailAPI/trailAPI";
+import PARKAPI from "../utils/auth/parkAPI/parkAPI";
+import { Link } from "react-router-dom";
 
 import axios from "axios";
 
@@ -33,6 +34,16 @@ function Favorites() {
   // add expanded page button and function
 
   // add delete button and function
+  const deleteFav = (id) => {
+    PARKAPI.deleteSave(id).then(() => {
+      PARKAPI.getParks().then(({ data }) => {
+        console.log("favorites:", data);
+        setFavoriteParks(data);
+      });
+    });
+
+    console.log("remove button", id);
+  };
 
   React.useEffect(() => {
     PARKAPI.getParks().then(({ data }) => {
@@ -74,14 +85,17 @@ function Favorites() {
                   style={{ backgroundColor: "#D3D3D3" }}
                   className="list-group-item"
                 >
+                  <Link to={`/Expanded/${favPark._id}`}>
+                    <button className="btn btn-outline-success" type="submit">
+                      Click to see more details of this park
+                    </button>
+                  </Link>
                   <button
                     className="btn btn-outline-success"
                     type="submit"
-                    value={favPark.city}
+                    value={favPark._id}
                     onClick={(event) => {
-                      console.log(event.target.value);
-                      // onSubmit(event);
-                      // provideData(event);
+                      deleteFav(event.target.value);
                     }}
                   >
                     Remove from Favorites

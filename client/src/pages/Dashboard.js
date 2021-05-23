@@ -5,7 +5,7 @@ import { useAuth } from "../utils/auth";
 import { api_key } from "../api.json";
 import { park_api_key } from "../api.json";
 import background from "../imgs/weather.jpeg";
-import PARKAPI from "../utils/auth/trailAPI/trailAPI";
+import PARKAPI from "../utils/auth/parkAPI/parkAPI";
 import ParkInfo from "../components/ParkInfo";
 import Context from "../utils/Context";
 

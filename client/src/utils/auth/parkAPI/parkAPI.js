@@ -26,7 +26,9 @@ export default {
   },
   // Deletes the park with the given id
   deleteSave: function (id) {
-    return axios.delete("/api/parks/" + id);
+    return axios.delete("/api/parks/" + id, {
+      authorization: getAuthToken(),
+    });
   },
   getParks() {
     return axios.get("/api/parks", {
