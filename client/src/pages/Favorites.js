@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import background from "../imgs/fav.jpeg";
 import PARKAPI from "../utils/auth/parkAPI/parkAPI";
+import {Link} from "react-router-dom";
 
 import axios from "axios";
 
@@ -33,17 +34,16 @@ function Favorites() {
   // add expanded page button and function
 
   // add delete button and function
-  const deleteFav = ((id) => {
-    // event.preventDefault();
+  const deleteFav = (id) => {
     PARKAPI.deleteSave(id).then(() => {
       PARKAPI.getParks().then(({ data }) => {
         console.log("favorites:", data);
         setFavoriteParks(data);
-      }); 
-    })
+      });
+    });
 
     console.log("remove button", id);
-  });
+  };
 
   React.useEffect(() => {
     PARKAPI.getParks().then(({ data }) => {
@@ -85,13 +85,12 @@ function Favorites() {
                   style={{ backgroundColor: "#D3D3D3" }}
                   className="list-group-item"
                 >
+                  <Link to = {`/Expanded/${favPark._id}`}>Expand</Link>
                   <button
                     className="btn btn-outline-success"
                     type="submit"
                     value={favPark._id}
                     onClick={(event) => {
-                      console.log(event.target.value);
-                      console.log(favPark);
                       deleteFav(event.target.value);
                     }}
                   >

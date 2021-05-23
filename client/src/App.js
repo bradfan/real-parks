@@ -12,6 +12,7 @@ import Favorites from "./pages/Favorites";
 import Navbar from "./components/Navbar";
 import parkApi from "./utils/auth/parkAPI/parkAPI";
 import ParkInfo from "./components/ParkInfo";
+import Expanded from "./pages/Expanded";
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
             </ProtectedRoute>
             <ProtectedRoute exact path="/Dashboard">
               <Dashboard component="dashboard" />
+            </ProtectedRoute>
+            <ProtectedRoute path="/Expanded/:parkId">
+              <Expanded />
             </ProtectedRoute>
           </Switch>
         </div>

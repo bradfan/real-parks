@@ -6,9 +6,10 @@ router
   .route("/api/parks")
   .get(parkController.findAll)
   .post(parkController.create)
-  // .get(parkController.findOne)
+  
 router
-.route("/api/parks/:id").delete(parkController.delete);
+.route("/api/parks/:id").delete(parkController.delete) 
+.get(parkController.findOne)
 
 module.exports = router;
 

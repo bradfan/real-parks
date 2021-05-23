@@ -74,7 +74,6 @@ function Dashboard() {
       designation: data.designation,
       alt: data.images[0].altText,
       city: data.addresses[0].city,
-      id: data._id,
     }).then((response) => {
       console.log("response:", response);
     });
