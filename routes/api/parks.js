@@ -9,7 +9,7 @@ router
   
 router
 .route("/api/parks/:id").delete(parkController.delete) 
-.get(parkController.findOne)
+// .get(parkController.findOne)
 
 module.exports = router;
 

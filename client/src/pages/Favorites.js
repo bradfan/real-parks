@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import background from "../imgs/fav.jpeg";
 import PARKAPI from "../utils/auth/parkAPI/parkAPI";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import axios from "axios";
 
@@ -85,7 +85,11 @@ function Favorites() {
                   style={{ backgroundColor: "#D3D3D3" }}
                   className="list-group-item"
                 >
-                  <Link to = {`/Expanded/${favPark._id}`}>Expand</Link>
+                  <Link to={`/Expanded/${favPark._id}`}>
+                    <button className="btn btn-outline-success" type="submit">
+                      Click to see more details of this park
+                    </button>
+                  </Link>
                   <button
                     className="btn btn-outline-success"
                     type="submit"
