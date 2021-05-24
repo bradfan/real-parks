@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { api_key } from "../api.json";
 import background from "../imgs/weather2.jpeg";
 import { useParams } from "react-router-dom";
@@ -58,11 +58,11 @@ function Expanded() {
     console.log("park data:", park);
   };
 
-  // const onSubmit = useCallback((event) => {
-  //   event.preventDefault();
-  //   console.log("park:", park);
-  //   getParkWeather();
-  // });
+  const onSubmit = useCallback((event) => {
+    event.preventDefault();
+    console.log("park:", park);
+    getParkWeather();
+  });
 
   useEffect(() => {
     PARKAPI.getView().then(({ data }) => {
@@ -72,11 +72,11 @@ function Expanded() {
   }, []);
 
   // const viewPark = (id) => {
-  //   PARKAPI.findOne(id).then(() => {
-  //     console.log("view one:", id)
-  //     setView(id)
-  //   })
-  // }
+  //   PARKAPI.getView(id).then(() => {
+  //     console.log("view one:", id);
+  //     setView(id);
+  //   });
+  // };
 
   return (
     <div style={styles}>
@@ -114,7 +114,7 @@ function Expanded() {
               // value={favPark.city}
               onClick={(event) => {
                 console.log(event.target.value);
-                // onSubmit(event);
+                onSubmit(event);
                 provideData(event);
               }}
             >
