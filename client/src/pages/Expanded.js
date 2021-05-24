@@ -39,8 +39,9 @@ function Expanded() {
   const [weatherResponse, setWeatherResponse] = useState({});
   const [park, setPark] = useState("");
   const [view, setView] = useState("");
-  let params = useParams();
-  console.log("parkId:", params);
+  const params  = useParams();
+  console.log("params:", params);
+  
 
   const getParkWeather = () => {
     const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?q=${park}&units=imperial&APPID=${api_key}`;
@@ -64,8 +65,8 @@ function Expanded() {
     getParkWeather();
   });
 
-  useEffect(() => {
-    PARKAPI.getView().then(({ data }) => {
+  useEffect((params) => {
+    PARKAPI.getView(params).then(({ data }) => {
       console.log("view:", data);
       setView(data);
     });
@@ -101,17 +102,20 @@ function Expanded() {
         /> */}
         <div>
           <div className="card-body">
-            <h5 className="card-title">Name: {params.name}</h5>
-            <p className="card-text">A Detailed Look</p>
+            <h5 className="card-title">Placeholder Name</h5>
+            <p className="card-text">Placeholder Designation</p>
           </div>
           <ul className="list-group list-group-flush">
-            <li className="list-group-item">Phone: ""</li>
-            <li className="list-group-item">email: ""</li>
-            <li className="list-group-item">DOB: ""</li>
+            <li className="list-group-item">Description:</li>
+            <li className="list-group-item">Directions:</li>
+            <li className="list-group-item">Contact Info:</li>
+            <li className="list-group-item">Activities:</li>
+            <li className="list-group-item">Contact Info:</li>
+            <li className="list-group-item">Contact Info:</li>
             <button
               className="btn btn-outline-success"
               type="submit"
-              // value={favPark.city}
+              // value="" put the value of the "city" here for weather url
               onClick={(event) => {
                 console.log(event.target.value);
                 onSubmit(event);

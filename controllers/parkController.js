@@ -41,18 +41,16 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   findOne: function (req, res) {
-    console.log("/api/parks/create", req.body);
     const userData = decodeToken(req);
     const parkToView = {
       ...req.body,
       user_id: userData.id,
     };
-    console.log("park to view:", parkToView);
-    db.Park.create(parkToView)
+    db.Park.findById({ parkToView })
+      .then((dbModel) => dbModel.create())
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
 
-  
   // create a new function "findOne" "get route" for one park based on park id, find the one park send it to the front findById function out of mongoose
 };
