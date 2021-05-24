@@ -35,4 +35,10 @@ export default {
       authorization: getAuthToken(),
     });
   },
+  // Finds one park with a given id
+  getView: function(parkToView) {
+    return axios.get("/api/parks", parkToView, {
+      authorization: getAuthToken(),
+    });
+  },
 };

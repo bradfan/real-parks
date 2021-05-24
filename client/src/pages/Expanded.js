@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { api_key } from "../api.json";
 import background from "../imgs/weather2.jpeg";
-import {useParams} from "react-router-dom";
-
+import { useParams } from "react-router-dom";
+import PARKAPI from "../utils/auth/parkAPI/parkAPI";
 
 const styles = {
   width: "100vw",
@@ -38,8 +38,9 @@ const weatherStyles = {
 function Expanded() {
   const [weatherResponse, setWeatherResponse] = useState({});
   const [park, setPark] = useState("");
-  let params  = useParams();
-    console.log("parkId:", params);
+  const [view, setView] = useState("");
+  let params = useParams();
+  console.log("parkId:", params);
 
   const getParkWeather = () => {
     const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?q=${park}&units=imperial&APPID=${api_key}`;
@@ -63,20 +64,30 @@ function Expanded() {
   //   getParkWeather();
   // });
 
-  useEffect(() =>{
-    
-  },[])
+  useEffect(() => {
+    PARKAPI.getView().then(({ data }) => {
+      console.log("view:", data);
+      setView(data);
+    });
+  }, []);
+
+  // const viewPark = (id) => {
+  //   PARKAPI.findOne(id).then(() => {
+  //     console.log("view one:", id)
+  //     setView(id)
+  //   })
+  // }
 
   return (
     <div style={styles}>
       <div style={cardStyles} className="card">
-        {/* <img
-          style={{ width: "100px", height: "100px" }}
-          src={props.image}
-          className="card-img-top"
-          alt={props.name}
-        />
         <img
+          // style={{ width: "100px", height: "100px" }}
+          src=""
+          className="card-img-top"
+          alt=""
+        />
+        {/* <img
           style={{ width: "100px", height: "100px" }}
           src={props.image}
           className="card-img-top"
@@ -90,28 +101,26 @@ function Expanded() {
         /> */}
         <div>
           <div className="card-body">
-            {/* <h5 className="card-title">
-              Name: {props.empName.first} {props.empName.last}{" "}
-            </h5> */}
-            <p className="card-text">A proud employee of Your Company</p>
+            <h5 className="card-title">Name: {params.name}</h5>
+            <p className="card-text">A Detailed Look</p>
           </div>
-          {/* <ul className="list-group list-group-flush">
-            <li className="list-group-item">Phone: {props.phoneNumber}</li>
-            <li className="list-group-item">email: {props.email}</li>
-            <li className="list-group-item">DOB: {props.dob}</li>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">Phone: ""</li>
+            <li className="list-group-item">email: ""</li>
+            <li className="list-group-item">DOB: ""</li>
             <button
               className="btn btn-outline-success"
               type="submit"
-              value={favPark.city}
+              // value={favPark.city}
               onClick={(event) => {
                 console.log(event.target.value);
-                onSubmit(event);
+                // onSubmit(event);
                 provideData(event);
               }}
             >
               Check the weather forecast for this park!
             </button>
-          </ul> */}
+          </ul>
         </div>
       </div>
       <div style={weatherStyles}>
