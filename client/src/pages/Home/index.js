@@ -35,15 +35,16 @@ function Home() {
       <div style={titleStyles} className="App-header">
         <h1>Welcome to Parkify</h1>
         <h6>
-          To find a national park you desire to explore by the state of your
-          choice please click on the dashboard.
+          Search all National Parks, Historic Sites, Monuments and Historic
+          Trails by State.
           <h6>
-            After exploring you can list your favorites to refer back to later
-            on by clicking the favorites tab.
+            Click on "Save to Favorites" where parks you choose are saved for
+            future reference. From there you can view more details of your saved
+            items!
           </h6>
         </h6>
       </div>
-      <p className="App-intro">
+      {/* <p className="App-intro">
         <button
           type="button"
           className="btn btn-danger"
@@ -51,7 +52,7 @@ function Home() {
         >
           Logout
         </button>
-      </p>
+      </p> */}
     </div>
   );
 }
