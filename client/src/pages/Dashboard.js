@@ -70,10 +70,28 @@ function Dashboard() {
       name: data.name,
       description: data.description,
       directions: data.directionsInfo,
-      image: data.images[0].url,
       designation: data.designation,
-      alt: data.images[0].altText,
       city: data.addresses[0].city,
+      image0: data.images[0].url,
+      image1: data.images[1].url,
+      image2: data.images[2].url,
+      image3: data.images[3].url,
+      alt0: data.images[0].altText,
+      alt1: data.images[1].altText,
+      alt2: data.images[2].altText,
+      alt3: data.images[3].altText,
+      activity0: data.activities[0].name,
+      activity1: data.activities[1].name,
+      activity2: data.activities[2].name,
+      activity3: data.activities[3].name,
+      activity4: data.activities[4].name,
+      weather: data.weatherInfo,
+      topic0: data.topics[0].name,
+      topic1: data.topics[1].name,
+      topic2: data.topics[2].name,
+      phone: data.contacts.phoneNumbers[0].phoneNumber,
+      email: data.contacts.emailAddresses[0].emailAddress
+      
     }).then((response) => {
       console.log("response:", response);
     });
@@ -160,9 +178,7 @@ function Dashboard() {
                       style={{ backgroundColor: "#D3D3D3" }}
                       className="list-group-item"
                     >
-                      <strong>Activities:</strong> {obj.activities[0].name},{" "}
-                      {obj.activities[1].name}, {obj.activities[2].name},{" "}
-                      {obj.activities[3].name} and {obj.activities[4].name}
+                      <strong>Activities:</strong> {obj.activities[0].name}, {obj.activities[1].name}, {obj.activities[2].name}, {obj.activities[3].name} and {obj.activities[4].name}
                     </li>
                     <li
                       style={{ backgroundColor: "#D3D3D3" }}
@@ -192,12 +208,14 @@ function Dashboard() {
                       <strong>Contact Info:</strong>
 
                       <p>
-                        <strong>Phone:</strong>{" "}
+                        <strong>Phone:</strong>
                         {obj.contacts.phoneNumbers[0].phoneNumber}
                       </p>
                       <p>
-                        <strong>email:</strong>{" "}
-                        {obj.contacts.emailAddresses[0].emailAddress}
+                        <strong>email:</strong>
+                        <a href="mailto:{obj.contacts.emailAddresses[0].emailAddress}">
+                          {obj.contacts.emailAddresses[0].emailAddress}
+                        </a>
                       </p>
                     </li>
 
@@ -211,6 +229,7 @@ function Dashboard() {
                         onClick={(event) => {
                           console.log(event.target.value);
                           saveInput(obj);
+                          alert("Saved to Favorites!")
                         }}
                       >
                         Save as Favorite

@@ -57,12 +57,32 @@ function Favorites() {
       {favoriteParks.map((favPark) => {
         return (
           <div style={cardStyles} className="card">
+            <div>
             <img
-              style={{ width: "400px", height: "400px" }}
-              src={favPark.image[0]}
+              style={{ width: "200px", height: "200px", padding: "10px" }}
+              src={favPark.image0[0]}
               className="card-img-top"
-              alt={favPark.alt}
+              alt={favPark.alt0}
             />
+            <img
+              style={{ width: "200px", height: "200px", padding: "10px" }}
+              src={favPark.image1[0]}
+              className="card-img-top"
+              alt={favPark.alt1}
+            />
+             <img
+              style={{ width: "200px", height: "200px", padding: "10px" }}
+              src={favPark.image2[0]}
+              className="card-img-top"
+              alt={favPark.alt2}
+            />
+            <img
+              style={{ width: "200px", height: "200px", padding: "10px" }}
+              src={favPark.image3[0]}
+              className="card-img-top"
+              alt={favPark.alt3}
+            />
+            </div>
             <div>
               <div className="card-body">
                 <h5 className="card-title"> {favPark.name} </h5>
@@ -85,17 +105,18 @@ function Favorites() {
                   style={{ backgroundColor: "#D3D3D3" }}
                   className="list-group-item"
                 >
-                  <Link to={`/Expanded/${favPark._id}`}>
+                  {/* <Link to={`/Expanded/${favPark._id}`}>
                     <button className="btn btn-outline-success" type="submit">
                       Click to see more details of this park
                     </button>
-                  </Link>
+                  </Link> */}
                   <button
                     className="btn btn-outline-success"
                     type="submit"
                     value={favPark._id}
                     onClick={(event) => {
                       deleteFav(event.target.value);
+                      alert("Removed from Favorites!!")
                     }}
                   >
                     Remove from Favorites
