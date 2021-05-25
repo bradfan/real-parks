@@ -177,23 +177,19 @@ function Dashboard() {
                       style={{ backgroundColor: "#D3D3D3" }}
                       className="list-group-item"
                     >
-                      <strong>Activities:</strong> {obj.activities[0].name},
-                      {obj.activities[1].name}, {obj.activities[2].name},
-                      {obj.activities[3].name} and {obj.activities[4].name}
+                      <strong>Activities:</strong> {obj.activities[0].name}, {obj.activities[1].name}, {obj.activities[2].name}, {obj.activities[3].name} and {obj.activities[4].name}
                     </li>
                     <li
                       style={{ backgroundColor: "#D3D3D3" }}
                       className="list-group-item"
                     >
-                      <strong>What to expect from the weather:</strong>
-                      {obj.weatherInfo}
+                      <strong>What to expect from the weather:</strong> {obj.weatherInfo}
                     </li>
                     <li
                       style={{ backgroundColor: "#D3D3D3" }}
                       className="list-group-item"
                     >
-                      <strong>What this site is known for:</strong>
-                      {obj.topics[0].name}, {obj.topics[1].name} and
+                      <strong>What this site is known for:</strong> {obj.topics[0].name}, {obj.topics[1].name} and
                       {obj.topics[2].name}
                     </li>
                     <li
@@ -246,12 +242,4 @@ function Dashboard() {
 
 export default Dashboard;
 
-//  // Saves a park to the database
-//  handleSave: function (savePark) {
-//   return axios.post("/api/trails", savePark);
-// },
-// // Deletes the park with the given id
-// deleteSave: function (id) {
-//   return axios.delete("/api/trails/" + id);
-// },
-// };
+
