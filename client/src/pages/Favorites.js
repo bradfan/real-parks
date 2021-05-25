@@ -33,7 +33,6 @@ function Favorites() {
 
   // add expanded page button and function
 
-  
   const deleteFav = (id) => {
     PARKAPI.deleteSave(id).then(() => {
       PARKAPI.getParks().then(({ data }) => {
@@ -58,49 +57,44 @@ function Favorites() {
         return (
           <div style={cardStyles} className="card">
             <div>
-            <img
-              style={{ width: "200px", height: "200px", padding: "10px" }}
-              src={favPark.image0[0]}
-              className="card-img-top"
-              alt={favPark.alt0}
-            />
-            <img
-              style={{ width: "200px", height: "200px", padding: "10px" }}
-              src={favPark.image1[0]}
-              className="card-img-top"
-              alt={favPark.alt1}
-            />
-             <img
-              style={{ width: "200px", height: "200px", padding: "10px" }}
-              src={favPark.image2[0]}
-              className="card-img-top"
-              alt={favPark.alt2}
-            />
-            <img
-              style={{ width: "200px", height: "200px", padding: "10px" }}
-              src={favPark.image3[0]}
-              className="card-img-top"
-              alt={favPark.alt3}
-            />
+              <img
+                style={{ width: "200px", height: "200px", padding: "10px" }}
+                src={favPark.image0[0]}
+                className="card-img-top"
+                alt={favPark.alt0}
+              />
+              <img
+                style={{ width: "200px", height: "200px", padding: "10px" }}
+                src={favPark.image1[0]}
+                className="card-img-top"
+                alt={favPark.alt1}
+              />
+              <img
+                style={{ width: "200px", height: "200px", padding: "10px" }}
+                src={favPark.image2[0]}
+                className="card-img-top"
+                alt={favPark.alt2}
+              />
+              <img
+                style={{ width: "200px", height: "200px", padding: "10px" }}
+                src={favPark.image3[0]}
+                className="card-img-top"
+                alt={favPark.alt3}
+              />
             </div>
             <div>
               <div className="card-body">
-                <h5 className="card-title"> {favPark.name} </h5>
-                <p
+               <strong><h3 className="card-title"> {favPark.name} </h3></strong> 
+            <strong><p
                   style={{ backgroundColor: "#D3D3D3" }}
                   className="list-group-item"
                 >
                   {favPark.designation}
-                </p>
-                <p className="card-text">Description: {favPark.description}</p>
+                </p></strong> 
+                <p className="card-text"><strong>Description:</strong> {favPark.description}</p>
               </div>
               <ul className="list-group list-group-flush">
-                <li
-                  style={{ backgroundColor: "#D3D3D3" }}
-                  className="list-group-item"
-                >
-                  Directions: {favPark.directions}
-                </li>
+                
                 <li
                   style={{ backgroundColor: "#D3D3D3" }}
                   className="list-group-item"
@@ -110,13 +104,49 @@ function Favorites() {
                       Click to see more details of this park
                     </button>
                   </Link> */}
+                  <li
+                    style={{ backgroundColor: "#D3D3D3" }}
+                    className="list-group-item"
+                  >
+                    <strong>Activities:</strong> {favPark.activity0}, {favPark.activity1}, {favPark.activity2}, {favPark.activity3} and {favPark.activity4}
+                  </li>
+                  <li
+                    style={{ backgroundColor: "#D3D3D3" }}
+                    className="list-group-item"
+                  >
+                    <strong>What to expect from the weather:</strong> {favPark.weather}
+                  </li>
+                  <li
+                    style={{ backgroundColor: "#D3D3D3" }}
+                    className="list-group-item"
+                  >
+                    <strong>What this site is known for:</strong> {favPark.topic0}, {favPark.topic1} and {favPark.topic2}
+                  </li>
+                   <li
+                    style={{ backgroundColor: "#D3D3D3" }}
+                    className="list-group-item"
+                  >
+                    <li
+                  style={{ backgroundColor: "#D3D3D3" }}
+                  className="list-group-item" >
+              <strong>Directions:</strong> {favPark.directions}
+                </li>
+                    <strong>Contact Info:</strong>
+
+                    <p>
+                      <strong>Phone:</strong> {favPark.phone}
+                    </p>
+                    <p>
+                      <strong>email:</strong> {favPark.email}
+                    </p>
+                  </li>
                   <button
                     className="btn btn-outline-success"
                     type="submit"
                     value={favPark._id}
                     onClick={(event) => {
                       deleteFav(event.target.value);
-                      alert("Removed from Favorites!!")
+                      alert("Removed from Favorites!!");
                     }}
                   >
                     Remove from Favorites

@@ -90,8 +90,7 @@ function Dashboard() {
       topic1: data.topics[1].name,
       topic2: data.topics[2].name,
       phone: data.contacts.phoneNumbers[0].phoneNumber,
-      email: data.contacts.emailAddresses[0].emailAddress
-      
+      email: data.contacts.emailAddresses[0].emailAddress,
     }).then((response) => {
       console.log("response:", response);
     });
@@ -170,7 +169,7 @@ function Dashboard() {
                     </strong>
 
                     <p className="card-text">
-                      <strong>Description:</strong> {obj.description} {}
+                      <strong>Description:</strong> {obj.description}
                     </p>
                   </div>
                   <ul className="list-group list-group-flush">
@@ -178,21 +177,23 @@ function Dashboard() {
                       style={{ backgroundColor: "#D3D3D3" }}
                       className="list-group-item"
                     >
-                      <strong>Activities:</strong> {obj.activities[0].name}, {obj.activities[1].name}, {obj.activities[2].name}, {obj.activities[3].name} and {obj.activities[4].name}
+                      <strong>Activities:</strong> {obj.activities[0].name},
+                      {obj.activities[1].name}, {obj.activities[2].name},
+                      {obj.activities[3].name} and {obj.activities[4].name}
                     </li>
                     <li
                       style={{ backgroundColor: "#D3D3D3" }}
                       className="list-group-item"
                     >
-                      <strong>What to expect from the weather:</strong>{" "}
+                      <strong>What to expect from the weather:</strong>
                       {obj.weatherInfo}
                     </li>
                     <li
                       style={{ backgroundColor: "#D3D3D3" }}
                       className="list-group-item"
                     >
-                      <strong>What this site is known for:</strong>{" "}
-                      {obj.topics[0].name}, {obj.topics[1].name} and{" "}
+                      <strong>What this site is known for:</strong>
+                      {obj.topics[0].name}, {obj.topics[1].name} and
                       {obj.topics[2].name}
                     </li>
                     <li
@@ -213,9 +214,7 @@ function Dashboard() {
                       </p>
                       <p>
                         <strong>email:</strong>
-                        <a href="mailto:{obj.contacts.emailAddresses[0].emailAddress}">
-                          {obj.contacts.emailAddresses[0].emailAddress}
-                        </a>
+                        {obj.contacts.emailAddresses[0].emailAddress}
                       </p>
                     </li>
 
@@ -229,7 +228,7 @@ function Dashboard() {
                         onClick={(event) => {
                           console.log(event.target.value);
                           saveInput(obj);
-                          alert("Saved to Favorites!")
+                          alert("Saved to Favorites!");
                         }}
                       >
                         Save as Favorite
