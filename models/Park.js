@@ -1,29 +1,38 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// framework of a model from book hw - need info from api object to complete correctly
+
 const parkSchema = new Schema({
   user_id: { type: String },
   name: { type: String },
   description: { type: String },
   directions: { type: String },
-  image: { type: [String] },
   designation: { type: String },
-  alt: { type: String },
   city: { type: String },
+  image0: { type: [String] },
+  image1: { type: [String] },
+  image2: { type: [String] },
+  image3: { type: [String] },
+  alt0: { type: String },
+  alt1: { type: String },
+  alt2: { type: String },
+  alt3: { type: String },
+  activity0: { type: String},
+  activity1: { type: String},
+  activity2: { type: String},
+  activity3: { type: String},
+  activity4: { type: String},
+  weather: { type: String },
+  topic0: { type: String },
+  topic1: { type: String },
+  topic2: { type: String },
+  phone: { type: String},
+  email: { type: String},
+  
 });
 
 const Park = mongoose.model("Park", parkSchema);
 
 module.exports = Park;
 
-/*
-  axios.get('https://api.example.com')
-  .then((response) => {
-    Post.create({
-      title: response.post_title,
-    })
-  })
-  
 
-*/

@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { api_key } from "../api.json";
-import background from "../imgs/expanded.jpeg";
-import {useParams} from "react-router-dom";
-
+import background from "../imgs/weather2.jpeg";
+import { useParams } from "react-router-dom";
+import PARKAPI from "../utils/auth/parkAPI/parkAPI";
 
 const styles = {
   width: "100vw",
@@ -38,8 +38,10 @@ const weatherStyles = {
 function Expanded() {
   const [weatherResponse, setWeatherResponse] = useState({});
   const [park, setPark] = useState("");
-  let params  = useParams();
-    console.log("parkId:", params);
+  const [view, setView] = useState("");
+  const params  = useParams();
+  console.log("params:", params);
+  
 
   const getParkWeather = () => {
     const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?q=${park}&units=imperial&APPID=${api_key}`;
@@ -57,26 +59,36 @@ function Expanded() {
     console.log("park data:", park);
   };
 
-  // const onSubmit = useCallback((event) => {
-  //   event.preventDefault();
-  //   console.log("park:", park);
-  //   getParkWeather();
-  // });
+  const onSubmit = useCallback((event) => {
+    event.preventDefault();
+    console.log("park:", park);
+    getParkWeather();
+  });
 
-  useEffect(() =>{
-    
-  },[])
+  useEffect((params) => {
+    PARKAPI.getView(params).then(({ data }) => {
+      console.log("view:", data);
+      setView(data);
+    });
+  }, []);
+
+  // const viewPark = (id) => {
+  //   PARKAPI.getView(id).then(() => {
+  //     console.log("view one:", id);
+  //     setView(id);
+  //   });
+  // };
 
   return (
     <div style={styles}>
       <div style={cardStyles} className="card">
-        {/* <img
-          style={{ width: "100px", height: "100px" }}
-          src={props.image}
-          className="card-img-top"
-          alt={props.name}
-        />
         <img
+          // style={{ width: "100px", height: "100px" }}
+          src=""
+          className="card-img-top"
+          alt=""
+        />
+        {/* <img
           style={{ width: "100px", height: "100px" }}
           src={props.image}
           className="card-img-top"
@@ -90,19 +102,20 @@ function Expanded() {
         /> */}
         <div>
           <div className="card-body">
-            {/* <h5 className="card-title">
-              Name: {props.empName.first} {props.empName.last}{" "}
-            </h5> */}
-            <p className="card-text">A proud employee of Your Company</p>
+            <h5 className="card-title">Placeholder Name</h5>
+            <p className="card-text">Placeholder Designation</p>
           </div>
-          {/* <ul className="list-group list-group-flush">
-            <li className="list-group-item">Phone: {props.phoneNumber}</li>
-            <li className="list-group-item">email: {props.email}</li>
-            <li className="list-group-item">DOB: {props.dob}</li>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">Description:</li>
+            <li className="list-group-item">Directions:</li>
+            <li className="list-group-item">Contact Info:</li>
+            <li className="list-group-item">Activities:</li>
+            <li className="list-group-item">Contact Info:</li>
+            <li className="list-group-item">Contact Info:</li>
             <button
               className="btn btn-outline-success"
               type="submit"
-              value={favPark.city}
+              // value="" put the value of the "city" here for weather url
               onClick={(event) => {
                 console.log(event.target.value);
                 onSubmit(event);
@@ -111,7 +124,7 @@ function Expanded() {
             >
               Check the weather forecast for this park!
             </button>
-          </ul> */}
+          </ul>
         </div>
       </div>
       <div style={weatherStyles}>

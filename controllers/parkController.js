@@ -40,6 +40,17 @@ module.exports = {
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
+  findOne: function (req, res) {
+    const userData = decodeToken(req);
+    const parkToView = {
+      ...req.body,
+      user_id: userData.id,
+    };
+    db.Park.findById({ parkToView })
+      .then((dbModel) => dbModel.create())
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
+  },
 
-  // create a new function "findOne" "get route" for one park based on park id, find the one park send it to the front find By Id function out of mongoose
+  // create a new function "findOne" "get route" for one park based on park id, find the one park send it to the front findById function out of mongoose
 };
