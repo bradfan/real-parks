@@ -111,24 +111,48 @@ function Dashboard() {
             return (
               /* add card styles to the below div */
               <div style={cardStyles} className="card">
-                <img
-                  style={{ width: "400px", height: "400px" }}
-                  src={obj.images[0].url}
-                  className="card-img-top"
-                  alt={obj.images[0].altText}
-                />
+                <div>
+                  <img
+                    style={{ width: "200px", height: "200px", padding: "10px" }}
+                    src={obj.images[0].url}
+                    className="card-img-top"
+                    alt={obj.images[0].altText}
+                  />
+                  <img
+                    style={{ width: "200px", height: "200px", padding: "10px" }}
+                    src={obj.images[0].url}
+                    className="card-img-top"
+                    alt={obj.images[0].altText}
+                  />
+                  <img
+                    style={{ width: "200px", height: "200px", padding: "10px" }}
+                    src={obj.images[0].url}
+                    className="card-img-top"
+                    alt={obj.images[0].altText}
+                  />
+                  <img
+                    style={{ width: "200px", height: "200px", padding: "10px" }}
+                    src={obj.images[0].url}
+                    className="card-img-top"
+                    alt={obj.images[0].altText}
+                  />
+                </div>
                 <div>
                   <div className="card-body">
-                    <h5 className="card-title"> {obj.name} </h5>
-                    <p
-                      style={{ backgroundColor: "#D3D3D3" }}
-                      className="list-group-item"
-                    >
-                      {obj.designation}
-                    </p>
+                    <strong>
+                      <h3 className="card-title"> {obj.name} </h3>
+                    </strong>
+                    <strong>
+                      <p
+                        style={{ backgroundColor: "#D3D3D3" }}
+                        className="list-group-item"
+                      >
+                        {obj.designation}
+                      </p>
+                    </strong>
 
                     <p className="card-text">
-                      Description: {obj.description} {}
+                      <strong>Description:</strong> {obj.description} {}
                     </p>
                   </div>
                   <ul className="list-group list-group-flush">
@@ -136,7 +160,45 @@ function Dashboard() {
                       style={{ backgroundColor: "#D3D3D3" }}
                       className="list-group-item"
                     >
-                      Directions: {obj.directionsInfo}
+                      <strong>Activities:</strong> {obj.activities[0].name},{" "}
+                      {obj.activities[1].name}, {obj.activities[2].name},{" "}
+                      {obj.activities[3].name} and {obj.activities[4].name}
+                    </li>
+                    <li
+                      style={{ backgroundColor: "#D3D3D3" }}
+                      className="list-group-item"
+                    >
+                      <strong>What to expect from the weather:</strong>{" "}
+                      {obj.weatherInfo}
+                    </li>
+                    <li
+                      style={{ backgroundColor: "#D3D3D3" }}
+                      className="list-group-item"
+                    >
+                      <strong>What this site is known for:</strong>{" "}
+                      {obj.topics[0].name}, {obj.topics[1].name} and{" "}
+                      {obj.topics[2].name}
+                    </li>
+                    <li
+                      style={{ backgroundColor: "#D3D3D3" }}
+                      className="list-group-item"
+                    >
+                      <strong>Directions:</strong> {obj.directionsInfo}
+                    </li>
+                    <li
+                      style={{ backgroundColor: "#D3D3D3" }}
+                      className="list-group-item"
+                    >
+                      <strong>Contact Info:</strong>
+
+                      <p>
+                        <strong>Phone:</strong>{" "}
+                        {obj.contacts.phoneNumbers[0].phoneNumber}
+                      </p>
+                      <p>
+                        <strong>email:</strong>{" "}
+                        {obj.contacts.emailAddresses[0].emailAddress}
+                      </p>
                     </li>
 
                     <li
