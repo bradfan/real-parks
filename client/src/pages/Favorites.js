@@ -44,7 +44,7 @@ function Favorites() {
   const [weatherResponse, setWeatherResponse] = useState({});
 
   const getParkWeather = () => {
-    const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?q=${park}&units=imperial&APPID=${api_key}`;
+    const weatherURL = `https://api.openweathermap.org/data/2.5/forecast?q=${park}&units=imperial&APPID=${api_key}`;
     fetch(weatherURL)
       .then((res) => res.json())
       .then((data) => {
