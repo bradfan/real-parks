@@ -144,23 +144,19 @@ function Favorites() {
                     style={{ backgroundColor: "#D3D3D3" }}
                     className="list-group-item"
                   >
-                    <strong>Activities:</strong> {favPark.activity0},
-                    {favPark.activity1}, {favPark.activity2},{" "}
-                    {favPark.activity3} and {favPark.activity4}
+                    <strong>Activities:</strong> {favPark.activity0}, {favPark.activity1}, {favPark.activity2}, {favPark.activity3} and {favPark.activity4}
                   </li>
                   <li
                     style={{ backgroundColor: "#D3D3D3" }}
                     className="list-group-item"
                   >
-                    <strong>What to expect from the weather:</strong>
-                    {favPark.weather}
+                    <strong>What to expect from the weather:</strong> {favPark.weather}
                   </li>
                   <li
                     style={{ backgroundColor: "#D3D3D3" }}
                     className="list-group-item"
                   >
-                    <strong>What this site is known for:</strong>
-                    {favPark.topic0}, {favPark.topic1} and {favPark.topic2}
+                    <strong>What this site is known for:</strong> {favPark.topic0}, {favPark.topic1} and {favPark.topic2}
                   </li>
                   <li
                     style={{ backgroundColor: "#D3D3D3" }}
@@ -191,7 +187,7 @@ function Favorites() {
                       provideData(event);
                     }}
                   >
-                    The weather forecast for this park appears at bottom of page!
+                    Click for the weather forecast for this park at the bottom of page!
                   </button>
                   <button
                     className="btn btn-outline-success"
