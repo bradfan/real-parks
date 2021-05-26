@@ -75,6 +75,11 @@ function Navbar() {
         <Link className="navbar-brand" to="/"></Link>
         <NavLinks />
       </div>
+      <div style ={{fontFamily:"cursive"}}>
+     <strong><p>"National Parks are the best idea we ever had. Absolutely American, absolutely democratic, they reflect us at our best rather than our worst."</p></strong>
+     <strong><p>...Wallace Stegner, Author, Environmentalist and Historian</p></strong>   
+        
+      </div>
       <div>
         <GiForest color="green" size="8rem" />
       </div>

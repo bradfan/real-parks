@@ -33,14 +33,13 @@ function Home() {
   return (
     <div style={styles} className="App">
       <div style={titleStyles} className="App-header">
-        <h1>Welcome to Parkify</h1>
+        <h1>Passage</h1>
         <h6>
-          Search all National Parks, Historic Sites, Monuments and Historic
+          Your passport to search all National Parks, Historic Sites, Monuments and Historic
           Trails by State.
           <h6>
             Click on "Save to Favorites" where parks you choose are saved for
-            future reference. From there you can view more details of your saved
-            items!
+            future reference with an up to date weather forecast to help plan your trip.
           </h6>
         </h6>
       </div>
