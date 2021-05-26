@@ -33,8 +33,9 @@ const weatherStyles = {
   fontWeight: "bold",
   borderWidth: "50px",
   display: "flex",
-  margin: "40px",
+  margin: "0",
   border: "5px black",
+  textAlign: "center",
 };
 
 function Favorites() {
@@ -144,19 +145,23 @@ function Favorites() {
                     style={{ backgroundColor: "#D3D3D3" }}
                     className="list-group-item"
                   >
-                    <strong>Activities:</strong> {favPark.activity0}, {favPark.activity1}, {favPark.activity2}, {favPark.activity3} and {favPark.activity4}
+                    <strong>Activities:</strong> {favPark.activity0},{" "}
+                    {favPark.activity1}, {favPark.activity2},{" "}
+                    {favPark.activity3} and {favPark.activity4}
                   </li>
                   <li
                     style={{ backgroundColor: "#D3D3D3" }}
                     className="list-group-item"
                   >
-                    <strong>What to expect from the weather:</strong> {favPark.weather}
+                    <strong>What to expect from the weather:</strong>{" "}
+                    {favPark.weather}
                   </li>
                   <li
                     style={{ backgroundColor: "#D3D3D3" }}
                     className="list-group-item"
                   >
-                    <strong>What this site is known for:</strong> {favPark.topic0}, {favPark.topic1} and {favPark.topic2}
+                    <strong>What this site is known for:</strong>{" "}
+                    {favPark.topic0}, {favPark.topic1} and {favPark.topic2}
                   </li>
                   <li
                     style={{ backgroundColor: "#D3D3D3" }}
@@ -187,7 +192,8 @@ function Favorites() {
                       provideData(event);
                     }}
                   >
-                    Click for the weather forecast for this park at the bottom of page!
+                    Click for the weather forecast for this park at the bottom
+                    of page!
                   </button>
                   <button
                     className="btn btn-outline-success"
@@ -214,12 +220,11 @@ function Favorites() {
                   // forecast card
                   <div key={idx} style={cardStyles}>
                     <ul>
-                     
-                      <li>Date: {weatherResponse?.list[idx]?.dt_txt}</li>
-
                       <li>
-                        Temp: {weatherResponse?.list[idx]?.main?.temp} F
+                        Date: {weatherResponse?.list[idx]?.dt_txt.slice(0, 10)}
                       </li>
+
+                      <li>Temp: {weatherResponse?.list[idx]?.main?.temp} F</li>
 
                       <li>
                         Humidity: {weatherResponse?.list[idx]?.main?.humidity}%
