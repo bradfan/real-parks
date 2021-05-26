@@ -31,7 +31,7 @@ const weatherStyles = {
   fontWeight: "bold",
   borderWidth: "50px",
   display: "flex",
-  margin: "40px",
+  margin: "0",
   border: "5px black",
 };
 

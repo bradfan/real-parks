@@ -93,6 +93,11 @@ function Dashboard() {
       email: data.contacts.emailAddresses[0].emailAddress,
     }).then((response) => {
       console.log("response:", response);
+      if (response.data === "Already Saved!") {
+        alert("Already Saved as a Favorite!");
+      } else {
+        alert("Saved to Favorites!");
+      }
     });
   };
 
@@ -125,34 +130,34 @@ function Dashboard() {
 
       {test.data
         ? test.data.map((obj) => {
+            const activities = obj.activities.map((act) => {
+              return act.name;
+            });
+            const images = obj.images.map((img) => {
+              return img.url;
+            });
+            const topics = obj.topics.map((topic) => {
+              return topic.name;
+            });
+
             return (
               /* add card styles to the below div */
               <div style={cardStyles} className="card">
                 <div>
-                  <img
-                    style={{ width: "200px", height: "200px", padding: "10px" }}
-                    src={obj.images[0].url}
-                    className="card-img-top"
-                    alt={obj.images[0].altText}
-                  />
-                  <img
-                    style={{ width: "200px", height: "200px", padding: "10px" }}
-                    src={obj.images[0].url}
-                    className="card-img-top"
-                    alt={obj.images[0].altText}
-                  />
-                  <img
-                    style={{ width: "200px", height: "200px", padding: "10px" }}
-                    src={obj.images[0].url}
-                    className="card-img-top"
-                    alt={obj.images[0].altText}
-                  />
-                  <img
-                    style={{ width: "200px", height: "200px", padding: "10px" }}
-                    src={obj.images[0].url}
-                    className="card-img-top"
-                    alt={obj.images[0].altText}
-                  />
+                  {images.slice(0, 4).map((image) => {
+                    return (
+                      <img
+                        style={{
+                          width: "200px",
+                          height: "200px",
+                          padding: "10px",
+                        }}
+                        src={image}
+                        className="card-img-top"
+                        // alt={obj.images[0].altText}
+                      />
+                    );
+                  })}
                 </div>
                 <div>
                   <div className="card-body">
@@ -177,24 +182,21 @@ function Dashboard() {
                       style={{ backgroundColor: "#D3D3D3" }}
                       className="list-group-item"
                     >
-                      <strong>Activities:</strong> {obj.activities[0].name},
-                      {obj.activities[1].name}, {obj.activities[2].name},
-                      {obj.activities[3].name} and {obj.activities[4].name}
+                      <strong>Activities:</strong> {activities.join(", ")}
                     </li>
                     <li
                       style={{ backgroundColor: "#D3D3D3" }}
                       className="list-group-item"
                     >
-                      <strong>What to expect from the weather:</strong>
+                      <strong>What to expect from the weather:</strong>{" "}
                       {obj.weatherInfo}
                     </li>
                     <li
                       style={{ backgroundColor: "#D3D3D3" }}
                       className="list-group-item"
                     >
-                      <strong>What this site is known for:</strong>
-                      {obj.topics[0].name}, {obj.topics[1].name} and
-                      {obj.topics[2].name}
+                      <strong>What this site is known for:</strong>{" "}
+                      {topics.join(", ")}
                     </li>
                     <li
                       style={{ backgroundColor: "#D3D3D3" }}
@@ -228,10 +230,9 @@ function Dashboard() {
                         onClick={(event) => {
                           console.log(event.target.value);
                           saveInput(obj);
-                          alert("Saved to Favorites!");
                         }}
                       >
-                        Save as Favorite
+                        Save as Favorite!
                       </button>
                     </li>
                   </ul>
@@ -245,13 +246,3 @@ function Dashboard() {
 }
 
 export default Dashboard;
-
-//  // Saves a park to the database
-//  handleSave: function (savePark) {
-//   return axios.post("/api/trails", savePark);
-// },
-// // Deletes the park with the given id
-// deleteSave: function (id) {
-//   return axios.delete("/api/trails/" + id);
-// },
-// };

@@ -28,8 +28,21 @@ module.exports = {
       user_id: userData.id,
     };
     console.log("park to save", parkToSave);
-    db.Park.create(parkToSave)
-      .then((dbModel) => res.json(dbModel))
+    db.Park.findOne({
+      directions: req.body.directions,
+    })
+      .then((item) => {
+        // console.log("item:", item);
+        if (item) {
+           res.status(200).send("Already Saved!")
+        } else {
+          // createNew
+          db.Park.create(parkToSave)
+            .then((dbModel) => res.json(dbModel))
+            .catch((err) => res.status(422).json(err));
+        }
+      })
+
       .catch((err) => res.status(422).json(err));
   },
 
