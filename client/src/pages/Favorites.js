@@ -221,7 +221,7 @@ function Favorites() {
                   <div key={idx} style={cardStyles}>
                     <ul>
                       <li>
-                        Date: {weatherResponse?.list[idx]?.dt_txt.slice(0, 10)}
+                        Date: {weatherResponse?.list[idx]?.dt_txt.slice(5, 10)}
                       </li>
 
                       <li>Temp: {weatherResponse?.list[idx]?.main?.temp} F</li>
