@@ -91,6 +91,7 @@ function Dashboard() {
       topic2: data.topics[2].name,
       phone: data.contacts.phoneNumbers[0].phoneNumber,
       email: data.contacts.emailAddresses[0].emailAddress,
+      zip: data.addresses[0].postalCode
     }).then((response) => {
       console.log("response:", response);
       if (response.data === "Already Saved!") {

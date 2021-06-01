@@ -44,7 +44,7 @@ function Favorites() {
   const [weatherResponse, setWeatherResponse] = useState({});
 
   const getParkWeather = () => {
-    const weatherURL = `https://api.openweathermap.org/data/2.5/forecast?q=${park}&units=imperial&APPID=${api_key}`;
+    const weatherURL = `https://api.openweathermap.org/data/2.5/forecast?zip=${park}&units=imperial&APPID=${api_key}`;
     fetch(weatherURL)
       .then((res) => res.json())
       .then((data) => {
@@ -185,9 +185,9 @@ function Favorites() {
                   <button
                     className="btn btn-outline-success"
                     type="submit"
-                    value={favPark.city}
+                    value={favPark.zip}
                     onClick={(event) => {
-                      console.log(event.target.value);
+                      console.log("on submit:", event.target.value);
                       onSubmit(event);
                       provideData(event);
                     }}
