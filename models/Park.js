@@ -28,7 +28,7 @@ const parkSchema = new Schema({
   topic2: { type: String },
   phone: { type: String},
   email: { type: String},
-  
+  zip: { type: String},
 });
 
 const Park = mongoose.model("Park", parkSchema);
