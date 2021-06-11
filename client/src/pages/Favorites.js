@@ -28,12 +28,13 @@ const cardStyles = {
 };
 const weatherStyles = {
   listStyleType: "none",
+  margin: "0",
+  padding: "0",
   borderRadius: "100px",
   color: "#1028F2",
   fontWeight: "bold",
   borderWidth: "50px",
   display: "flex",
-  margin: "0",
   border: "5px black",
   textAlign: "center",
 };
@@ -220,13 +221,13 @@ function Favorites() {
                   // forecast card
                   <div key={idx} style={cardStyles}>
                     <ul>
-                      <li>
+                      <li style={{listStyleType: "none",}}>
                         Date: {weatherResponse?.list[idx]?.dt_txt.slice(5, 10)}
                       </li>
 
-                      <li>Temp: {weatherResponse?.list[idx]?.main?.temp} F</li>
+                      <li style={{listStyleType: "none",}}>Temp: {weatherResponse?.list[idx]?.main?.temp} F</li>
 
-                      <li>
+                      <li style={{listStyleType: "none",}}>
                         Humidity: {weatherResponse?.list[idx]?.main?.humidity}%
                       </li>
                     </ul>
