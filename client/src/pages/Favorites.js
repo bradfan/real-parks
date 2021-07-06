@@ -31,12 +31,12 @@ const weatherStyles = {
   margin: "0",
   padding: "0",
   borderRadius: "100px",
-  color: "#1028F2",
+  color: "black",
   fontWeight: "bold",
   borderWidth: "50px",
   display: "flex",
   border: "5px black",
-  textAlign: "center",
+  // textAlign: "right",
 };
 
 function Favorites() {
@@ -210,6 +210,7 @@ function Favorites() {
                 </li>
               </ul>
             </div>
+            
           </div>
         );
       })}
