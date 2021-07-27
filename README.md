@@ -12,6 +12,6 @@
 ![passage](client/imgs/README.png)
 
 
-
+npm run start for local host
 
  
