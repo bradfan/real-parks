@@ -38,8 +38,8 @@ function Dashboard() {
 
   const getPark = () => {
     const parkURL = `https://developer.nps.gov/api/v1/parks?parkCode=&stateCode=${city}&stateCode&api_key=${park_api_key}`;
-
     console.log("parkURL: ", parkURL);
+    // fetch data from the URL, resolve to json
     fetch(parkURL)
       .then((res) => res.json())
       .then((data) => {
@@ -48,13 +48,13 @@ function Dashboard() {
         console.log("test:", test);
       });
   };
-
+  //  recieves input from user and assigns text to value and sets state
   const handleInputChange = (event) => {
     const val = event.target.value;
     setCity(val);
     console.log("city:", city);
   };
-
+    // fulfills handleSubmit from button, check to see if UseCallBack is correct here-app is functional with it
   const handleSubmit = useCallback((event) => {
     event.preventDefault();
     console.log("city:", city);
